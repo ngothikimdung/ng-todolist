@@ -10,7 +10,7 @@ import { Todo } from 'src/app/todos';
 })
 export class DialogComponent implements OnInit {
   todos: Todo[] = [];
-  todoForm!: FormGroup;
+  dialogForm!: FormGroup;
   updateId!: any;
   isEditEnabled: boolean = false;
 
@@ -20,7 +20,7 @@ export class DialogComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.todoForm = this.formb.group({
+    this.dialogForm = this.formb.group({
       item: ['', Validators.required],
     });
 
@@ -28,12 +28,19 @@ export class DialogComponent implements OnInit {
 
   }
 
+  // onEdit(item: Todo, idx: number) {
+  //   // this.dialog.open(DialogComponent)
+  //   this.dialogForm.controls['item'].setValue(item.name);
+  //   this.updateId = idx;
+  //   this.isEditEnabled = true;
+  // }
+
 
 
   updateTodo() {
-    this.todos[this.updateId].name = this.todoForm.value.item;
+    this.todos[this.updateId].name = this.dialogForm.value.item;
     this.todos[this.updateId].isComplete = false;
-    this.todoForm.reset();
+    this.dialogForm.reset();
     this.updateId = undefined;
     this.isEditEnabled = false;
   }

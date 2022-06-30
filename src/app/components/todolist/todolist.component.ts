@@ -48,9 +48,9 @@ export class TodolistComponent implements OnInit {
 
   onEdit(item: Todo, idx: number) {
     this.dialog.open(DialogComponent)
-    this.todoForm.controls['item'].setValue(item.name);
-    this.updateId = idx;
-    this.isEditEnabled = true;
+    // this.todoForm.controls['item'].setValue(item.name);
+    // this.updateId = idx;
+    // this.isEditEnabled = true;
   }
 
 
